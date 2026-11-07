@@ -14,9 +14,9 @@
 	</a>
 </p>
 
-# Winlator
+# WineBox
 
-Winlator is an Android application that lets you to run Windows (x86_64) applications with Wine and Box86/Box64.
+WineBox is an Android application for running Windows (x86_64) applications with Wine and Box86/Box64. It keeps the original Winlator runtime while introducing a console-inspired interface and the WineBox brand.
 
 # Installation
 
