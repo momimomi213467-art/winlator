@@ -45,6 +45,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: winebox-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
           retention-days: 14
