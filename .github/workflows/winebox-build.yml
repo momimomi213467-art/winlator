@@ -35,11 +35,17 @@ jobs:
       - name: Install Android NDK and CMake
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0" "ndk;24.0.8215888" "cmake;3.22.1"
 
+      - name: Download Gradle with retries
+        run: |
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 10 --connect-timeout 30 --max-time 600 https://downloads.gradle.org/distributions/gradle-8.14.5-bin.zip --output /tmp/gradle.zip
+          sudo unzip -q /tmp/gradle.zip -d /opt
+          /opt/gradle-8.14.5/bin/gradle --version
+
       - name: Build debug APK
         working-directory: app
         run: |
           chmod +x gradlew
-          ./gradlew --no-daemon assembleDebug
+          /opt/gradle-8.14.5/bin/gradle --no-daemon assembleDebug
 
       - name: Upload WineBox APK
         uses: actions/upload-artifact@v4
